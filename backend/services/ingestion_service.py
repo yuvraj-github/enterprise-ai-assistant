@@ -1,6 +1,7 @@
+from fileinput import filename
 import uuid
 
-from services.chroma_service import add_documents
+from services.chroma_service import add_documents, delete_document_by_filename
 
 
 CHUNK_SIZE = 1000
@@ -55,6 +56,9 @@ def ingest_document(
     if not documents:
         raise ValueError("The document contains no extractable text.")
 
+    # Remove the previous version of this file
+    delete_document_by_filename(filename)
+    
     add_documents(documents, ids, metadatas)
 
     return {

@@ -27,6 +27,11 @@ def document_hash_exists(document_hash: str) -> bool:
     )
     return bool(result["ids"])
 
+def delete_document_by_filename(filename: str) -> None:
+    collection.delete(
+        where={"filename": filename}
+    )
+
 
 def search_documents(question: str, n_results: int = 3) -> dict:
     return collection.query(
