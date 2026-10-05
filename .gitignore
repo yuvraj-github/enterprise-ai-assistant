@@ -1,0 +1,23 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Chroma
+chroma_db/
+
+# Node
+node_modules/
+
+# Vite
+dist/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
